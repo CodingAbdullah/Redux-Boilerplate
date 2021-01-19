@@ -1,11 +1,19 @@
+import { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Form from '../src/Components/Form/form';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
 
-    </div>
-  );
+  render = () => {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Form} />
+        </Switch>      
+      </Router>
+    );
+  }
 }
 
 export default App;
