@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import GameReducer from '../reducer/gameReducer';
+import formReducer from '../reducer/formReducer';
 
-const rootReducer = combineReducers({
-    GameReducer
+const combineReducer = combineReducers({
+    formReducer
 });
 
-export default rootReducer;
+export default combineReducer;

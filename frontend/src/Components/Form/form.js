@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './form.css';
 import Proptypes from 'prop-types';
 import { connect } from 'react-redux';
+import formAction from '../../Redux/action/formAction';
 
 class Form extends Component {
 
@@ -9,12 +10,16 @@ class Form extends Component {
         super(props);
 
         this.state = {
-            numberSelected: 0
+            numberSelected: 0,
+            information: []
         }
     }
 
     formHandler = () => {
-        
+
+        // Action call goes here...
+
+        this.props.formAction({number: this.state.numberSelected}); 
     }
 
     render = () => {
@@ -28,6 +33,7 @@ class Form extends Component {
 
         return (
             <div className="formSection">
+                {this.state.information}
                 <form className="form" onSubmit={this.formHandler}>
                     <div className="form-check">
                         <label>Selecting Post</label>
@@ -35,7 +41,7 @@ class Form extends Component {
                             { collection } 
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" className="btn btn-success">Submit</button>
                 </form>
             </div>
         )
@@ -43,6 +49,7 @@ class Form extends Component {
 }
 
 Form.prototypes = {
-
+    formAction: Proptypes.func.isRequired
 }
-export default connect(null, {})(Form);
+
+export default connect(null, { formAction })(Form);

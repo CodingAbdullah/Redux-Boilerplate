@@ -6,6 +6,6 @@ const basicController = require("../controller/basicController");
 const router = express.Router();
 
 // Add paths to this router
-router.post("/", basicController.basic);
+router.post("/api", basicController.basic);
 
 module.exports = router;

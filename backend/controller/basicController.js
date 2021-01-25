@@ -1,4 +1,20 @@
-exports.basic = (req, res) => {
+const axios = require("axios");
 
-    // Add logic here.. or add your own methods, routes
+exports.basic = async (req, res) => {
+
+    const { number }  = req.body;
+
+    // Dummy API call for testing purposes
+
+    axios.get("https://jsonplaceholder.typicode.com/posts/" + number)
+    .then(response => {
+        res.json({
+            data: response.data
+        })
+    })
+    .catch(err => {
+        res.json({
+            data: err
+        })
+    })
 }
